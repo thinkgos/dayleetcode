@@ -1,3 +1,4 @@
+import unittest
 
 bits = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,  # 0
         1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,  # 1
@@ -52,3 +53,18 @@ class Solution():
         :rtype: int
         """
         return bits[n&0xff] + bits[(n >> 8)&0xff] + bits[(n >> 16)&0xff] + bits[(n >> 24)&0xff]
+
+
+class TestSolution(unittest.TestCase):
+    def setUp(self) -> None:
+        self.obj = Solution()
+    def test_hammingWeight(self):
+        self.assertEqual(self.obj.hammingWeight(0x55),4)
+        self.assertEqual(self.obj.hammingWeight1(0x55),4)
+        self.assertEqual(self.obj.hammingWeight2(0x55),4)
+        self.assertEqual(self.obj.hammingWeight(0x8f),5)
+        self.assertEqual(self.obj.hammingWeight1(0x8f),5)
+        self.assertEqual(self.obj.hammingWeight2(0x8f),5)
+
+if __name__ == '__main__':
+    unittest.main()
