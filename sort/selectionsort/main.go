@@ -10,6 +10,7 @@ func main() {
 	log.Printf("%#v\r\n", result)
 }
 
+// 选择排序,找出最小的,排前面.
 func selectSort(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		min := arr[i]

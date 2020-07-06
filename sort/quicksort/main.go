@@ -17,20 +17,25 @@ func quickSort(arr []int) {
 	}
 
 	left, right := 1, len(arr)-1
-	privot := arr[0]
+	pivot := arr[0]
 	for left < right {
-		for left < right && arr[right] > privot {
+		// 先找最后边的
+		for left < right && arr[right] > pivot {
 			right--
 		}
-		for left < right && arr[left] < privot {
+		// 再找最左边的
+		for left < right && arr[left] < pivot {
 			left++
 		}
+		// 如果没碰到一起,就交换
 		if left < right {
 			arr[left], arr[right] = arr[right], arr[left]
 		}
 	}
+	// 交换标轴点
 	arr[0], arr[left] = arr[left], arr[0]
 
+	// 分开排
 	quickSort(arr[:left])
 	quickSort(arr[left+1:])
 }
@@ -41,12 +46,12 @@ func quickSort2(arr []int, left, right int) {
 	}
 
 	l, r := left+1, right
-	privot := arr[left]
+	pivot := arr[left]
 	for l < r {
-		for l < r && arr[r] > privot {
+		for l < r && arr[r] > pivot {
 			r--
 		}
-		for l < r && arr[l] < privot {
+		for l < r && arr[l] < pivot {
 			l++
 		}
 		if l < r {
