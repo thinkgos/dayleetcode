@@ -10,7 +10,10 @@ func main() {
 	var val = 3
 	length := removeElement(nums, val)
 	fmt.Printf("length: %d\r\n", length)
+
+	nums = []int{3, 2, 2, 3, 4, 2, 1, 5, 4}
 	length = removeElement1(nums, val)
+	fmt.Printf("nums: %x\r\n", nums)
 	fmt.Printf("length: %d\r\n", length)
 
 	// 26
@@ -34,10 +37,11 @@ func removeElement(nums []int, val int) int {
 
 // 27 题 方法2
 func removeElement1(nums []int, val int) int {
-	for i := 0; i < len(nums); {
+	for i, length := 0, len(nums); i < length; {
 		if nums[i] == val {
-			nums[i] = nums[len(nums)-1]
-			nums = nums[:len(nums)-1]
+			nums[i] = nums[length-1]
+			nums = nums[:length-1]
+			length = len(nums)
 		} else {
 			i++
 		}
