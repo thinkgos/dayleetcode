@@ -13,8 +13,7 @@ func main() {
 // 选择排序,找出最小的,排前面.
 func selectSort(arr []int) {
 	for i := 0; i < len(arr); i++ {
-		min := arr[i]
-		idx := i
+		idx, min := i, arr[i]
 		for j := i + 1; j < len(arr); j++ {
 			if arr[j] < min {
 				min, idx = arr[j], j

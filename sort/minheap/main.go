@@ -25,10 +25,11 @@ func parent(i int) int {
 }
 
 func child(i int, isLeft bool) int {
-	if isLeft {
-		return 2*i + 1
+	v := 2*i + 1
+	if !isLeft {
+		v += 1
 	}
-	return 2*i + 2
+	return v
 }
 
 type minHeap []int
