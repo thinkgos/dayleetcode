@@ -24,9 +24,9 @@ func parent(i int) int {
 	return (i - 1) / 2
 }
 
-func child(i int, isLeft bool) int {
+func child(i int, left bool) int {
 	v := 2*i + 1
-	if !isLeft {
+	if !left {
 		v += 1
 	}
 	return v
@@ -49,7 +49,7 @@ func (sf minHeap) up(idx int) {
 	}
 }
 
-// 在成型的堆上,进行下浮,要与子节点的最大(或最小)比较
+// 在成型的堆上,进行下沉,要与子节点的最大(或最小)比较
 // 注意边界条件,有可能无子节点,或只有一个左节点
 func (sf minHeap) down(idx int) {
 	for child(idx, true) < len(sf) {
